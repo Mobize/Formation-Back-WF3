@@ -306,6 +306,12 @@
        var_dump($var);
        echo"</pre>";
     }
+
+    function br()
+    {
+        echo '<br>';
+    }
+   
     vdm($texte);
 
     function separation(){
@@ -405,8 +411,245 @@
         echo $j.'#';
     }
 
-
     ?>
+    <br>
+-------------------------------------------------------------
+    <br>
+    <!-- 1ere version -->
+
+    <select>
+    <option value="1">selectionnez</option>
+        
+    <?php
+    for($i=date('Y')-1; $i>= 1950; $i--)
+    {
+        echo '<option value>'. $i .'</option>';
+    }
+    ?>
+     </select>
+     <br>
+
+----------------------------------------------------------
+    <br>
+    <!-- 2eme version -->
+
+    <label for="Année">Année</label> 
+    <select name="année">
+    <?php for ( $a = date('Y'); $a >= 1950; $a--): ?>
+        <option value="<?=$a ?>"><?=$a?></option>
+    <?php endfor;?>
+    </select>    
+    <br>
+----------------------------------------------------------
+<br>
+    <table>
+        <?php
+        $compteur=0;
+         for($o=1; $o<=20; $o++){
+         echo '<tr>';
+            for ($i=1; $i<=15; $i++)
+            {
+                $compteur++;
+                echo '<td>'.$compteur.'</td>';
+            }
+         echo '</tr>';
+            }
+        ?>   
+    </table>
+
+---------------------------------------------------------
+<br>
+<form action="#" method="post">
+<input type="text" name="ligne">
+<input type="text" name="colonne">
+<input type="submit" name="valider">
+</form>
+<?php
+
+if( !empty($_POST)) {
+    echo "je rentre dans le if<br>";
+    echo "si POST n'est pas vide => ca veut dire que post contient les données du formulaire => j'ai appuyé sur le bouton valider";
+   
+    vdm($_POST);
+    $lignes=$_POST["ligne"];
+    $colonnes=$_POST["colonne"];
+   ?>
+    <table>
+        <?php 
+        $compteur=0;
+        for($ligne=1; $ligne<=$lignes; $ligne++) :?>
+            <tr>
+            <?php
+            for($colonne=1; $colonne<=$colonnes; $colonne++):
+                $compteur++;
+                ?>
+                <td><?= $compteur ?></td>
+                <?php
+            endfor;?>
+            </tr>
+            <?php
+        endfor;
+        ?>    
+    </table>
+        
+    <?php
+}
+echo "<h2>Inclusion de fichiers</h2>";
+
+echo "premiere fois<br>"; 
+include('exemple.php');
+echo "<br>";
+/*
+echo "deuxieme fois<br>"; 
+include_once('exemple.php');
+echo "<br>";
+
+echo "troisieme fois<br>";
+require('exemple.php');
+echo "<br>";
+
+echo "quatrieme fois";
+require_once('exemple.php');
+echo '<br>';
+*/
+
+echo '<h2>Tableaux de données : ARRAY</h2>' ;
+
+$liste = array('Ruben','Hamid','Moundir','olivier','Romain');
+
+vdm($liste);
+
+$fruits = array();
+$fruits[] = 'pomme';
+$fruits[] = 'poire';
+$fruits[] = 'orange';
+
+vdm($fruits);
+
+$fruits2 = array('pm'=>'pomme','pr'=>'poire','og'=>'orange');
+vdm($fruits2);
+
+$fruits2[] ='cerise';
+$fruits2['bn'] ='banane';
+vdm($fruits2);
+
+$fruits2['pm'] ='peche';
+vdm($fruits2);
+
+$fruits2[] ='kiwi';
+vdm($fruits2);
+
+$fruits2[99] ='clementine';
+$fruits2[] = 'raisin';
+vdm($fruits2);
+
+/*  boucle foreach */
+
+foreach($fruits2 as $info)
+{
+    echo $info.'-';
+}
+echo '<hr>';
+
+foreach( $fruits2 as $indice => $valeur)
+{
+    echo "a l'indice $indice je trouve $valeur<br>";
+}
+/*
+ syntaxe : foreach ( nomtableauaparcourir as index=> valeur ) 
+           foreach ( nomtableauaparcourir as valeur)
+*/
+echo '<hr>';
+
+/* Tableau multi dimensionnel */
+
+$superheros = array(
+
+                    'Superman'=> array(
+                                'nom'=>'Kent',
+                                'prenom'=>'Clark',
+                                'Univers'=> 'DC Comics'),
+
+                    'Spiderman'=> array(
+                                'nom'=>'Parker',
+                                'prenom'=>'Peter',
+                                'Univers'=> 'DC Comics'),
+
+                    'Batman'=> array(
+                                'nom'=>'Wayne',
+                                'prenom'=>'Bruce',
+                                'Univers'=> 'marvel'),
+
+                    'Ironman'=> array(
+                                'nom'=>'Stark',
+                                'prenom'=>'Tony',
+                                'Univers'=> 'Marvel'),                              
+                    
+                    );
+/* vdm($superheros);*/
+echo count($superheros);
+echo '<br>';
+echo sizeof($superheros);
+echo '<br>';
+/* count() et sizeof() indiqunet tous deux le nombre d entrés dans le tableau */
+
+echo $superheros['Batman']['prenom'];
+echo '<br>';
+echo $superheros['Spiderman']['Univers'];
+echo '<br>';
+
+foreach($superheros as $nomsuper=>$tabsuper)
+{
+    echo '<p>'.$nomsuper.'<p>';
+    foreach($tabsuper as $info=>$valeur2){
+        echo $valeur2;
+    }
+};
+
+vdm($fruits2);
+
+$fruit3 = array('pomme','cerise', 'orange');
+
+$nbelements= count($fruit3);
+
+for( $i=0; $i<$nbelements; $i++)
+{
+    echo $fruit3[$i].'-';
+};
+
+
+echo '<h2>Objets</h2>';
+
+class Etudiant
+{
+    public $prenom = 'JUlien';
+    public $age = 25;
+    public function pays(){
+        return 'France';
+    }
+}
+
+$objet = new Etudiant;
+vdm($objet);
+
+vdm(get_class_methods($objet));
+h();
+echo $objet->age;
+h();
+br();
+echo $objet->pays();
+
+function h()
+{
+    echo '<hr>';
+};
+
+
+
+
+?>
+
+
 
     <!-- <?='allo'?> --> <!--  revient à < ?  php echo -->
     

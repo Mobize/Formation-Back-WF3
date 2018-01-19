@@ -3,3 +3,7 @@ h2{
     font-size: 15px;
     color: red;
 }
+
+td{
+    border: 1px solid black;
+}
