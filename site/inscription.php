@@ -35,14 +35,39 @@ if ( $_POST ){
        - ^ signifie "commence par tout ce qui suit"
        - $ signifie "finit par tout ce qui precede"
        - [] pour delimiter les intervalles ( ici de a à z, de A à Z, de 0 à 9, et on ajoute ".","_" ou "-" )
-       - le + pour dire que les caracteres sont acceptés de 0 à x fois
+       - le + pour dire que la chaine peut faire de 1 à n caractères
+            + equivalent de {1,}
+            ? equivalent de {0,1}
+            * equivalent de {0,}
+            {5} 5 précisement
+            {3,15} de 3 à 15 caractères
+
     */
 
+    if ( !$verif_caractere ){
+        $contenu .='<div class="alert alert-danger">Le pseudo doit contenir 3 à 15 caractères (lettres de a à z, chiffres de 0 à 9, _.-)</div>';
+    }
 
+    if ( !$verif_codepostal){
+        $contenu .='<div class="alert alert-danger">Le code postale n\'est pas correct</div>';
+    }
+
+
+    if ( $_POST['civilite'] !='m' && $_POST['civilite'] !='f' )
+    {
+        $contenu.='<div class="alert alert-danger">De quel genre etes vous?</div>';
+    }
 
     /* si tout va bien  */
     /* Je controle que le pseudo n existe pas deja dans la table */
     /* sinon j invite l internaute a changer de pseudo */
+
+    $membre = executeRequete("SELECT * FROM membre WHERE pseudo = :pseudo",array('pseudo' =>$_POST['pseudo']));
+    if ( $membre->rowCount() > 0 )
+    {
+        $contenu .='<div class="alert alert-danger">Pseudo indisponible, merci d\'en choisir un autre</div>';
+    }
+
 
     /* si tout va bien */
     /* j insere le nouveau membre dans la table membre (avec statut = 0)*/
@@ -84,14 +109,14 @@ if ( !$inscription ) :
     <label for="civilite">Civilité  </label>
     <div class="radio-inline">
     <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios1" value="m" <?= ( (isset($_POST['optionsRadios']) && $_POST['optionsRadios'] == 'm')
+    <input type="radio" name="civilite" id="optionsRadios1" value="m" <?= ( (isset($_POST['civilite']) && $_POST['civilite'] == 'm')
      || !isset($_POST['optionsRadios']) ) ? 'checked' : '' ?>>
     Mr
     </label>
     </div>
     <div class="radio-inline">
     <label>
-    <input type="radio" name="optionsRadios" id="optionsRadios2" value="f" <?= ( (isset($_POST['optionsRadios']) && $_POST['optionsRadios'] == 'f')
+    <input type="radio" name="civilite" id="optionsRadios2" value="f" <?= ( (isset($_POST['civilite']) && $_POST['civilite'] == 'f')
      || !isset($_POST['optionsRadios']) ) ? 'checked' : '' ?>>
     Mme
     </label>
@@ -102,7 +127,7 @@ if ( !$inscription ) :
     </div>
     <div class="form-group">
     <label for="code postal">Saisissez votre code postal</label>
-    <input type="text" name="code_postal" class="form-control" id="code_postal" placeholder="code postal" value="<?=$_POST['code_postal'] ?? '' ?>">
+    <input type="text" name="code_postal" class="form-control" id="code_postal" maxlength="5" placeholder="code postal" value="<?=$_POST['code_postal'] ?? '' ?>">
     </div>
     <div class="form-group">
     <label for="adresse">Saisissez votre adresse</label>
