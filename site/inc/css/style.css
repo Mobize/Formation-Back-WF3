@@ -1,6 +1,8 @@
 body{
     padding-top: 70px;
-    
+    background-image: url(../../photo/pc.jpg);
+    background-repeat:no-repeat;
+   background-attachment: fixed;
 }
 
 footer{
@@ -11,3 +13,12 @@ footer{
     min-height:80vh;
 }
 
+tr th{
+    padding: 5px;
+    text-align: center;
+}
+
+td{
+    padding: 6px;
+    font-family: tahoma;
+}

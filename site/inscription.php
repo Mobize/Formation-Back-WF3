@@ -58,6 +58,14 @@ if ( $_POST ){
         $contenu.='<div class="alert alert-danger">De quel genre etes vous?</div>';
     }
 
+    /* astuce de controle d email avec filter_var, fonction qui verifie la chaine de caractere par rapport à un format */
+    if ( !filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL) )
+    {
+        $contenu .='<div class="alert alert-danger">Adresse email invalide</div>';
+    }
+
+
+
     /* si tout va bien  */
     /* Je controle que le pseudo n existe pas deja dans la table */
     /* sinon j invite l internaute a changer de pseudo */
@@ -72,6 +80,25 @@ if ( $_POST ){
     /* si tout va bien */
     /* j insere le nouveau membre dans la table membre (avec statut = 0)*/
     /* je mets $inscription à true */
+
+    if ( empty($contenu))
+    {
+        executeRequete("INSERT INTO membre VALUES ( NULL,:pseudo,:mdp,:nom,:prenom,:email,:civilite,:ville,:code_postal,:adresse,0)",
+         array( 'pseudo' => $_POST['pseudo'],
+                'mdp' => MD5($_POST['mdp']),
+                'nom' => $_POST['nom'],
+                'prenom' => $_POST['prenom'],
+                'email' => $_POST['email'],
+                'civilite' => $_POST['civilite'],
+                'ville' => $_POST['ville'],
+                'code_postal' => $_POST['code_postal'],
+                'adresse' => $_POST['adresse']           
+                ));
+                $contenu.='<div class="alert alert-success">Vous çetes inscrit sur notre site.
+                            <a href="connexion.php">Cliquez ici pour vous connecter</a></div>';
+                $inscription = true;
+    }
+    
 
 }
 
@@ -110,14 +137,14 @@ if ( !$inscription ) :
     <div class="radio-inline">
     <label>
     <input type="radio" name="civilite" id="optionsRadios1" value="m" <?= ( (isset($_POST['civilite']) && $_POST['civilite'] == 'm')
-     || !isset($_POST['optionsRadios']) ) ? 'checked' : '' ?>>
+     || !isset($_POST['civilite']) ) ? 'checked' : '' ?>>
     Mr
     </label>
     </div>
     <div class="radio-inline">
     <label>
     <input type="radio" name="civilite" id="optionsRadios2" value="f" <?= ( (isset($_POST['civilite']) && $_POST['civilite'] == 'f')
-     || !isset($_POST['optionsRadios']) ) ? 'checked' : '' ?>>
+     || !isset($_POST['civilite']) ) ? : '' ?>>
     Mme
     </label>
     </div>
@@ -135,7 +162,7 @@ if ( !$inscription ) :
     </div>
   
   <div class="form-group">
-  <button type="submit" class="btn btn-default">Envoyer</button>
+  <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
 </div>
 </div>
