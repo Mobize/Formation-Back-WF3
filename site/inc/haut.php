@@ -35,13 +35,13 @@
                             }
                             if( estConnecte() ){
                                 echo'<li><a href="'.RACINE_SITE.'profil.php">Profil</a></li>';
-                                echo'<li><a href="'.RACINE_SITE.'connexion.php?action=deconnexion">Se Deconnecter</a></li>';
+                                echo'<li><a href="'.RACINE_SITE.'connexion.php?action=deconnexion">Se Deconnecter <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>';
 
                             }
                             else
                             {
                                 echo'<li><a href="'.RACINE_SITE.'inscription.php">Inscription</a></li>';
-                                echo'<li><a href="'.RACINE_SITE.'connexion.php">Connexion</a></li>';
+                                echo'<li><a href="'.RACINE_SITE.'connexion.php">Connexion <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>';
                             }
                             echo '<li><a href="'.RACINE_SITE.'panier.php">Panier '.nbArticlePanier().'</a></li>';
                         ?>
