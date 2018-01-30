@@ -39,3 +39,15 @@ table{
     transform: scale(1.3);
     transition: 0.7s;
 }
+
+.alert.alert-info{
+    color:#ef0d0d;
+}
+
+@media (min-width: 992px){
+.col-md-4 {
+    width: 33.33333333%;
+    border: 1px solid;
+    border-radius: 10px;
+}
+}

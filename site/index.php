@@ -9,12 +9,12 @@ $categories = executeRequete("SELECT DISTINCT categorie FROM produit ORDER BY ca
 
 $contenu_gauche .='<p class="lead">Categories</p>
                 <div class="list-group">
-                <a href="?categorie=all" class="list-group-item">Toutes</a>';
+                <a href="?categorie=all" class="list-group-item '.( !isset($_GET['categorie']) || ( isset($_GET['categorie']) && $_GET['categorie']=='all') ? 'active' : '' ).'">Toutes</a>';
 
                 while ($cat = $categories->fetch(PDO::FETCH_ASSOC))
                 {
                     $contenu_gauche .='<a href="?categorie='.$cat['categorie'].'"
-                    class="list-group-item">'.ucfirst($cat['categorie']) .'</a>';
+                    class="list-group-item '.( isset($_GET['categorie']) && ($_GET['categorie']==$cat['categorie']) ? 'active' : '').'">'.ucfirst($cat['categorie']) .'</a>';
                 }
 
                 $contenu_gauche .='</div>';
@@ -23,14 +23,15 @@ $contenu_gauche .='<p class="lead">Categories</p>
                 
  $couleurs = executeRequete("SELECT DISTINCT couleur FROM produit ORDER BY couleur");
 
+/* generation de la liste des couleurs */
  $contenu_gauche .='<p class="lead">Couleur</p>
                   <div class="list-group">
-                 <a href="?couleur=all" class="list-group-item">Toutes</a>';
+                 <a href="?couleur=all" class="list-group-item '.( !isset($_GET['couleur']) || ( isset($_GET['couleur']) && $_GET['couleur']=='all') ? 'active' : '' ).'">Toutes</a>';
                 
                  while ($color = $couleurs->fetch(PDO::FETCH_ASSOC))
                  {
                         $contenu_gauche .='<a href="?couleur='.$color['couleur'].'"
-                                    class="list-group-item">'.ucfirst($color['couleur']) .'</a>';
+                                    class="list-group-item '.( isset($_GET['couleur']) && ($_GET['couleur']==$color['couleur']) ? 'active' : '').'">'.ucfirst($color['couleur']).'</a>';
                  }
                 
                                 $contenu_gauche .='</div>';
@@ -72,9 +73,17 @@ while ( $produit = $donnees->fetch(PDO::FETCH_ASSOC))
                                 <h4 class="pull-right">'.$produit['prix'].' €</h4>
                                 <h4><a href="fiche_produit.php?"</a>'.$produit['titre'].'</a></h4>
                                 <p>'.$produit['description'].'</p>
+                                <p> Disponibilité :'.$produit['stock'].' en stock.</p>
+                                <form method="post" class="express" action="panier.php">
+                                <input type="hidden" name="id_produit" value="'.$produit['id_produit'].'">
+                                <input type="hidden" name="quantite" value="1">
+                                <input type="hidden" name="origine" value="index">
+                                <input type="submit" name="ajout_panier" value="Achat express" class="btn btn-primaty">
+                                </form>
                              </div>
-                          </div>      
+                          </div>        
                         </div>';  
+                        
 }
 
 
