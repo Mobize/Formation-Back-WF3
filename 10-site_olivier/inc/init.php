@@ -14,16 +14,14 @@
 session_start();
 
 //Connexion à la base de donnée
-$pdo = new PDO('mysql:host=localhost;dbname=site','root','',
+$pdo = new PDO('mysql:host=localhost;dbname=site_olivier','root','',
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
                       PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
 //Chemin du site
-define('RACINE_SITE','/Formation-Back-WF3/site/'); /* creation d'une constante 'RACINE_SITE'avec la valeur /site/ */
+define('RACINE_SITE','/Formation-Back-WF3/site_olivier/'); /* creation d'une constante 'RACINE_SITE'avec la valeur /site/ */
 
 $contenu='';
-$contenu_gauche='';
-$contenu_droite='';
+
 
 //Inclusion fichier de fonctions
-require_once('fonction.php');

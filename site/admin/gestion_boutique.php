@@ -151,7 +151,7 @@ if ( (isset($_GET['action']) && ($_GET['action']=='ajout' || $_GET['action']=='m
         $produit_actuel=$resul->fetch(PDO::FETCH_ASSOC);
    }
 ?>
-<h3>Formulaire d'ajout ou de modifiaction d'un produit</h3>
+<h3>Formulaire d'ajout ou de modification d'un produit</h3>
 <form method="post" action="" enctype="multipart/form-data">
    <div class="form-group col-xs-5">
    <input type="hidden" class="form-control" id="id_produit" name="id_produit" value="<?= $produit_actuel['id_produit'] ?? 0 ?>">
