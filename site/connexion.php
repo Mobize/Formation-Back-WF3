@@ -4,7 +4,8 @@ require_once('inc/init.php');
 
 /* traitement */
 if ( isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
-    session_destroy();
+    /* session_destroy(); */
+    unset($_SESSION['membre']);
 }
 
 if ( estConnecte() ){

@@ -27,7 +27,7 @@ td{
     width: 70px;
 }
 
-table{
+table.table-stripped{
     background-color: #1d4ce926;
 }
 
@@ -50,4 +50,8 @@ table{
     border: 1px solid;
     border-radius: 10px;
 }
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+    border: 1px solid ;
 }
