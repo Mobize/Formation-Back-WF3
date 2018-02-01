@@ -19,7 +19,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=site','root','',
                       PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
 //Chemin du site
-define('RACINE_SITE','/Formation-Back-WF3/site/'); /* creation d'une constante 'RACINE_SITE'avec la valeur /site/ */
+define('RACINE_SITE','/fronthugo/Formation-Back-WF3/site/'); /* creation d'une constante 'RACINE_SITE'avec la valeur /site/ */
 
 $contenu='';
 $contenu_gauche='';
