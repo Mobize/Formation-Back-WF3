@@ -1,0 +1,411 @@
+/* On vient de charger donc d'appliquer le fichier normalize.css (dans la balise head du html), on definitmaintenant le style qui nous est propre */
+
+/* Faut eviter normalement de placer trop de commentaires et de sauts de ligne en haut de page ;) */
+
+
+/* ****************************************** */
+/* *************** BALISES GENERIQUES **************** */
+/* ****************************************** */
+
+/* on charge la police UTMAvo en debut de fichier */
+@font-face {
+	font-family: 'UTMAvo';
+	src: url('../fonts/UTMAvo.eot');
+	src: local('UTMAvo'), url('../fonts/UTMAvo.woff') format('woff'), url('../fonts/UTMAvo.ttf') format('truetype');
+}
+/* on applique pour toutes les balises le calcul des tailles en border-box */
+*{
+	box-sizing: border-box;
+}
+body{
+	color: #000;
+	/* on force le body a se placer plus bas pour compenser le header en position:fixed */
+	margin-top: 200px;
+	/* on applique la police UTMAvo par defaut */
+	font-family:'UTMAvo';
+	/* la taille de la police par defaut sera la taille utilisateur */
+	font-size: 1em;
+}
+h1,h2,h3,h4,h5,h6{
+	/* on applique la police Ubuntu aux titres */
+	font-family:'Ubuntu', sans-serif;
+}
+a{
+	/* pas de soulignement sur les liens */
+	text-decoration: none;
+	/* le bleus pour les liens */
+	color: #0099ff;
+}
+ul{
+	/* pas de puce sur les listes */
+	list-style: none;
+	/* pas de retrait sur les éléments de liste */
+	padding-left: 0;
+}
+/* c'est les couleurs qu'on applique aux sections ou aux blocs (ou à ce qu'on veut) */
+.couleur1{
+	background-color: #f3f3f3; /* gris leger */
+}
+.couleur2{
+	background-color: #76cdcd; /* vert */
+	color: #fff;
+}
+.couleur3{
+	background-color: #849dd6; /* violet */
+	color: #fff;
+}
+.couleur4{
+	background-color: #fff; /* blanc */
+	color: #666666;
+}
+/* ****************************************** */
+/* *************** STRUCTURE **************** */
+/* ****************************************** */
+
+/* ****************HEADER***************** */
+header{
+	/* Couleur de fond */
+	background: #000;
+	/* hauteur minimale */
+	min-height: 80px;
+	
+	/* couleur du texte */
+	color: #fff;
+	/* on le place en haut de page fixé malgré le scroll */
+	position: fixed;
+	/* on confirme ses coordonnées en haut à gauche */
+	top: 0;
+	left: 0;
+	/* on confirme sa largeur */
+	width: 100%;
+	/* on place le header au premier plan de l'affichage pour eviter que du contenu puisse passer devant (les autres non spécifiés sont z-index:0) */
+	z-index: 10;
+}
+header h1{
+	/* marge haute 10px sur le logo tout en annulant la marge basse héritée */
+	margin: 10px 0 0 0;
+}
+
+header h1 a{
+	/* de la marge intérieure à l'interieur du lien dans h1 */
+	padding: 2px 150px 3px 0;
+	/* couleur bg bleu  */
+	
+	/* couleur txt blanche */
+ 	color: #fff;
+	height: 60px;
+	/* 1,5fois la taille par defaut */
+	font-size: 1.5em;
+}
+header nav{
+	/* cale le menu à droite du conteneur */
+	float:right;
+	/* marge haute dessus */
+	margin-top: 10px;
+}
+header nav a{
+	/* on les float, ils deviennent block, on peut leur donner des tailles */
+	float:left;
+	/* hauteur des liens de menu */
+	height:60px;
+	padding: 0 25px;
+	/* hauteur de ligne permettant de centrer verticalement le texte dans le 'bouton' */
+	line-height: 60px;
+	color: #fff;
+	/* font-weight: bold; */
+	/* temps de transition sur le survol */
+	transition: 0.3s;
+}
+header nav a:hover{
+	/* couleur de survol */
+	background: #0099ff;
+}
+/* ****************SECTIONS***************** */
+section{
+	/* bordure sur les sections, le temps du dev */
+	border: 1px solid grey;
+}
+section .conteneur{
+	/* on donne de l'air en debut et fin de chaque section */
+	padding: 68px;
+}
+section h2{
+	/* on donne de l'air sous les H2 */
+	margin-bottom: 30px;
+}
+/* on place les cibles des liens 'ancre' plus haut que leur emplacement d'origine pour compenser le header en fixe */
+#link1, #link2, #link3, #link4{
+	position: relative;
+	bottom: 180px;
+}
+/* ********SECTION1********* */
+.imageronde{
+	/* On place l'image à droite du bloc */
+	float: right;
+	width: 140px;
+	/* marges pour caler l'image dans l'espace */
+	margin: 0 60px 0 20px;
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+	border: 0px solid #000000;
+}
+#section1 li h3{
+	/* espacement entre les compétences et jauges */
+	margin: 10px 0;
+}
+.jauge_fond{
+	/* le gris de fond */
+	background: #e1e1e1;
+	/* hauteur de la jauge */
+	height: 6px;
+	width: 100%;
+}
+.jauge_couleur{
+	/* la couleur se règle dans le html, dans l'attribut style de la div */
+	height: 100%;
+}
+#section1 .col-3 img{
+	/* l'image ici s'adaptera à la taille de son bloc... */
+	width: 100%;
+	/* ... jusqu'à 500px maximum */
+	max-width: 500px;
+}
+/* ********SECTION1********* */
+
+/* Mise en place du systeme pour <figure> */
+figure{
+	border: 1px solid #c0c0c0;
+	width: 90%;
+	position: relative;
+	overflow: hidden;
+}
+figure img{
+	display: block;
+	width: 100%;
+}
+figcaption h3{
+	font-size: 0.8em;
+	margin: 10px 0;
+} 
+figcaption h3 a{
+	color: #ffffff;
+	text-decoration: none;
+}
+figure figcaption{
+	background: rgba(0,155,255,.75);
+	text-align: center;
+	color: white;
+	width: 100%;
+	position: absolute;
+	bottom:-25%;
+	transition: .6s;
+}
+figure:hover figcaption{
+	bottom:0;
+}
+/* ********SECTION3********* */
+table{
+	/* largeur des evenements par rapport au parent */
+	width: 90%;
+	/* espacement avec l'evenement suivant */
+	margin-bottom: 30px;
+}
+td.year{
+	width: 12%;
+	font-size: 1.4em;
+	font-weight: bold;
+	border-right: 1px solid;
+	padding-top: 5px;
+	padding-right: 10px;
+	text-align: right;
+}
+td.year p{
+	font-size: .8em;
+	font-weight: normal;
+	margin-top: 5px;
+	color: rgba(255,255,255,.7);
+}
+td.job{
+	width: 88%;
+	font-size: 1.3em;
+	border-bottom: 1px solid;
+	padding: 5px 0 10px 10px;
+}
+td.job_desc{
+	color: rgba(255,255,255,.7);
+	padding: 10px 0 0 10px;	
+}
+/* coukeurs de texte spécifiques au fond blanc 'formation' */
+.col-4 td.year p{
+	color: #666666;
+}
+.col-4  td.job_desc{
+	color: #666666;
+}
+/* ********SECTION4********* */
+/* on annule les bordures de la carte et on determine sa taille */
+iframe{
+	border:0;
+	width:100%;
+	height: 400px;
+}
+label{
+	/* permet un retour à la ligne systematique en les assignant blocs */
+	display: block;
+	margin-top: 20px;
+}
+input,textarea{
+	/* 100% du bloc parent pour les inputs et le textarea */
+	width: 100%;
+	height: 35px;
+	border: 1px solid #dedede;
+	margin-top: 6px;
+}
+textarea{
+	/* on determine une hauteur adequate pour le textarea */
+	height: 155px;
+	/* redimentionnement uniquement vertical */
+	resize: vertical;
+}
+input[type=submit]{
+	background: #0099ff;
+	color: #fff;
+	font-weight: bold;
+}
+input[type=submit]:hover{
+	background: #8dbc01;
+}
+/* ********SECTION4********* */
+footer{
+	background-color: #686a6a;
+	min-height: 60px;
+	color: #fff;
+}
+/* ****************************************** */
+/* *************** GRILLE **************** */
+/* ****************************************** */
+
+
+/* On a codé jusqu'ici en mobile first, ce qui induit que le conteneur ici devra s'appliquer à 100% de la taille du body afin d'annuler toute marge, nous redefiniront petit à petit ce comportement à mesure que l'affichage s'accroit */
+
+
+.conteneur{
+	width: 100%;
+	/* temporaire, à retirer */
+	border: 1px dotted red;
+	/* on auto centre le conteneur */
+	margin: 0 auto;
+}
+/* mise en place du clearfix, la ligne va nettoyer le flux float avant de se fermer */
+.ligne:after{
+	content:'';
+	display: block;
+	clear: both;
+}
+/* une classe clear si besoin */
+.clear{
+	clear: both;
+}
+/* on est encore en affichage mobile, toutes les colonnes sont à 100% */
+.col-1{float: left; width: 100%; padding: 10px;}
+.col-2{float: left; width: 100%; padding: 10px;}
+.col-3{float: left; width: 100%; padding: 10px;}
+.col-4{float: left; width: 100%; padding: 10px;}
+.col-5{float: left; width: 100%; padding: 10px;}
+.col-6{float: left; width: 100%; padding: 10px;}
+.col-7{float: left; width: 100%; padding: 10px;}
+.col-8{float: left; width: 100%; padding: 10px;}
+.col-9{float: left; width: 100%; padding: 10px;}
+.col-10{float: left; width: 100%; padding: 10px;}
+.col-11{float: left; width: 100%; padding: 10px;}
+.col-12{float: left; width: 100%; padding: 10px;}
+
+.col-marge-1{margin-left: 0;}
+.col-marge-2{margin-left: 0;}
+.col-marge-3{margin-left: 0;}
+.col-marge-4{margin-left: 0;}
+.col-marge-5{margin-left: 0;}
+.col-marge-6{margin-left: 0;}
+.col-marge-7{margin-left: 0;}
+.col-marge-8{margin-left: 0;}
+.col-marge-9{margin-left: 0;}
+.col-marge-10{margin-left: 0;}
+.col-marge-11{margin-left: 0;}
+
+/* on créé une classe particulière pouvant forcer certaines colonnes à passer à 50% pour cohabiter avec une colonne voisine (voir html) */
+.moitie{ width: 50%;}
+/* ****************************************** */
+/* *************** POUR 496 ET PLUS **************** */
+/* ****************************************** */
+@media(min-with: 496px){
+	
+}
+
+/* ****************************************** */
+/* *************** POUR 768 ET PLUS **************** */
+/* ****************************************** */
+@media (min-width: 768px){
+/* en taille tablette le conteneur aggrandit en consequence */
+	.conteneur{
+		width: 750px;
+	}
+}
+/* ****************************************** */
+/* *************** POUR 992 ET PLUS **************** */
+/* ****************************************** */
+@media (min-width: 992px){
+/* en taille laptop le conteneur aggrandit en consequence */
+	.conteneur{
+		width: 970px;
+	}
+	/* adaptation temporaire du margin-top du body en attendant de caler le menu du header */
+	body{
+		margin-top: 80px;
+	}
+	/* dans cette taille d'écran, les blocs se voient attribuer leurs tailles finales, on pourrait également choisir que certaines ne passent cette étape qu'en écran large */
+	.col-1{float: left; width: 8.33%;}
+	.col-2{float: left; width: 16.66%;}
+	.col-3{float: left; width: 25%;}
+	.col-4{float: left; width: 33.33%;}
+	.col-5{float: left; width: 41.66%;}
+	.col-6{float: left; width: 50%;}
+	.col-7{float: left; width: 58.33%;}
+	.col-8{float: left; width: 66.66%;}
+	.col-9{float: left; width: 75%;}
+	.col-10{float: left; width: 83.33%;}
+	.col-11{float: left; width: 91.66%;}
+	.col-12{float: left; width: 100%;}
+
+	/* Mise en place du systeme de marges sur les colonnes pour les décaler  */
+	.col-marge-1{margin-left: 8.33%;}
+	.col-marge-2{margin-left: 16.66%;}
+	.col-marge-3{margin-left: 25%;}
+	.col-marge-4{margin-left: 33.33%;}
+	.col-marge-5{margin-left: 41.66%;}
+	.col-marge-6{margin-left: 50%;}
+	.col-marge-7{margin-left: 58.33%;}
+	.col-marge-8{margin-left: 66.66%;}
+	.col-marge-9{margin-left: 75%;}
+	.col-marge-10{margin-left: 83.33%;}
+	.col-marge-11{margin-left: 91.66%;}
+	
+}
+/* ****************************************** */
+/* *************** POUR 1200 ET PLUS **************** */
+/* ****************************************** */
+/* en taille wide le conteneur aggrandit en consequence une dernière fois */
+@media (min-width: 1200px){
+	.conteneur{
+		width: 1170px;
+	}
+}
+
+
+
+
+
+
+
+
+
