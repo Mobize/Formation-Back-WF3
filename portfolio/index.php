@@ -14,7 +14,7 @@ if ($_POST)
         $objet = htmlspecialchars($_POST['objet'], ENT_QUOTES);
         $message = htmlspecialchars($_POST['msg'],ENT_QUOTES);
 
-        $req = $base->prepare("INSERT INTO messages VALUES(NULL,:email,:objet,:msg,NOW())");
+        $req = $base->prepare("INSERT INTO messages VALUES(NULL,:email,:objet,:msg,now())");
         $req->execute(array('email'=> $email,
                             'objet'=>$objet,
                             'msg'=>$message));
@@ -38,7 +38,7 @@ if ($_POST)
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="container">
 						<div class="navbar-header">
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#monmenu">
@@ -59,7 +59,7 @@ if ($_POST)
 								</ul>
 						</div>
 				</div>
-		</nav>
+		</nav> -->
 </header>
 <main>
 	<div class="">
@@ -303,7 +303,7 @@ if ($_POST)
 		<div class="row">
 				<h2>Pour me contacter</h2>
 			<div class="col-md-4 ">
-            <form method="get" action="#" >
+            <form method="post" action="" >
                 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required placeholder="Votre email ici..."/>
