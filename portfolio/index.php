@@ -38,7 +38,7 @@ if ($_POST)
 </head>
 <body>
 	<header>
-		<!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="container">
 						<div class="navbar-header">
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#monmenu">
@@ -59,7 +59,7 @@ if ($_POST)
 								</ul>
 						</div>
 				</div>
-		</nav> -->
+		</nav> 
 </header>
 <main>
 	<div class="">
@@ -332,7 +332,21 @@ if ($_POST)
 		</div>
     </div><!-- Fin du container -->
 
-    <div class="container"><a href="admin/index.php">Connexion admin</a></div>
+	<div class="container"><a href="admin/index.php">Connexion admin</a></div>
+	<div class="container">affichage :
+	<?php
+		
+			$nom_table = $base->query("SELECT * FROM messages");
+			$nom = $nom_table->fetch(PDO::FETCH_ASSOC);
+			echo($nom['email']);
+
+		/* $nb_comp = $base->query("SELECT count(*) as nb_nombre from messages");
+		$nb_competences = $nb_comp->fetch(PDO::FETCH_ASSOC);
+		$nb_nombre = $nb_competences['nb_nombre'];
+		echo ($nb_nombre[0]); */
+			
+	?>
+	</div>
 </main>
 	
 
