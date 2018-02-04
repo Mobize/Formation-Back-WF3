@@ -20,30 +20,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand " href="index.php">Accueil</a>
                 </div>
                 <div class="collapse navbar-collapse" id="monmenu">
                     <ul class="nav navbar-nav">
                         <?php
-                         
-                            if( estConnecteEtAdmin() ){
-
-                                echo '<li><a class="" href="admin/gestion_boutique.php">Gestion Boutique</a></li>';
-                                echo '<li><a href="admin/gestion_membre.php">Gestion Membres</a></li>';
-                                echo '<li><a href="admin/gestion_commande.php">Gestion Commandes</a></li>';
-
-                            }
-                            if( estConnecte() ){
-                                echo'<li><a href="profil.php">Profil</a></li>';
-                                echo'<li><a href="connexion.php?action=deconnexion">Se Deconnecter <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>';
-
-                            }
-                            else
-                            {
-                                echo'<li><a href="inscription.php">Inscription</a></li>';
-                                echo'<li><a href="connexion.php">Connexion <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>';
-                            }
-                            echo '<li><a href="panier.php">Panier '.nbArticlePanier().'</a></li>';
+                            echo '<li><a class="" href="./chauffeurs.php">Chauffeurs</a></li>';
+                            echo '<li><a href="./vehicules.php">Vehicules</a></li>';
+                            echo '<li><a href="./association.php">Association</a></li>';
+                            echo '<li><a href="./exercice5.php">Exercice 5</a></li>';
+                            echo '<li><a href="./modif.php">modif</a></li>';
                         ?>
                     </ul>
                 </div>

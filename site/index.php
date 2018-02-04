@@ -71,7 +71,7 @@ while ( $produit = $donnees->fetch(PDO::FETCH_ASSOC))
                              class="img-responsive"></a>
                              <div class="caption">
                                 <h4 class="pull-right">'.$produit['prix'].' €</h4>
-                                <h4><a href="fiche_produit.php?"</a>'.$produit['titre'].'</a></h4>
+                                <h4><a href="fiche_produit.php?id_produit='.$produit['id_produit'].'"</a>'.$produit['titre'].'</a></h4>
                                 <p>'.$produit['description'].'</p>
                                 <p> Disponibilité :'.$produit['stock'].' en stock.</p>
                                 <form method="post" class="express" action="panier.php">

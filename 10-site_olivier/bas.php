@@ -1,9 +1,9 @@
-        </div><!-- fin du container ouvert dans le haut.php--> 
+</div><!-- fin du container ouvert dans le haut.php--> 
         <div class="container-fluid">
             <footer>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p>&copy; Copyright 2018 - Boutique - Tous droits reservés</p>
+                        <p>&copy; chaufeurs</p>
                     </div>
                 </div>
             </footer>

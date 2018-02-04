@@ -54,7 +54,7 @@ $contenu .="<table class='table-striped'>
 /* les en tetes */
 for( $i=0; $i<$resul->columnCount() ; $i++)        
 {
-    $colonne = $resul->getColumnMeta($i);
+    $colonne = $resul->getColumnMeta($i);   
     if ( $colonne['name'] !='mdp')
     {
         $contenu .='<th>'.ucfirst($colonne['name']).'</th>';
