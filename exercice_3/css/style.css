@@ -1,0 +1,35 @@
+body {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+}
+.input-group {
+	padding-bottom: 15px;
+}
+.input-group label {
+	display: inline-block;
+	font-weight: bold;
+	min-width: 150px;
+}
+.success {
+	color: green;
+}
+.errors {
+	color: red;
+}
+.center {
+	text-align: center;
+}
+
+table {
+	width: 100%;
+}
+table, tr, th, td {
+	border: 1px solid #999;
+	border-collapse: collapse;
+}
+table th, table td {
+	padding: 5px;
+}
+table th {
+	background-color: #eee;
+}

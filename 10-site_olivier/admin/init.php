@@ -1,6 +1,6 @@
 <?php
 session_start();
-$base = new PDO('mysql:host=localhost;dbname=vtc',
+$base = new PDO('mysql:host=localhost;dbname=taxi',
 'root',
 '',
 array(
