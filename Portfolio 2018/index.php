@@ -8,8 +8,8 @@
 	<style>
 			@import url('https://fonts.googleapis.com/css?family=Raleway');
 	</style>
-	<link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <style>
          @import url('https://fonts.googleapis.com/css?family=Raleway:500');
          @import url('https://fonts.googleapis.com/css?family=Poiret+One');
@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row first">
             <div class="col-md-12 portable">
-                <img class="background img-responsive" src="./Background_portable2.jpg" alt="ordinateur portable" class="background">
+                <img class="background img-responsive" src=".//img/Background_portable2.jpg" alt="ordinateur portable" class="background">
             </div><!-- col md 12 portable -->
         </div><!-- fin de la row first-->
         <div class="row text">
@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-md-3">
                 <p id="presentation">presentation</p> 
-                <img src="./portrait2.gif" class="img-responsive portrait" alt="">
+                <img src="./img/portrait2.gif" class="img-responsive portrait" alt="">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel eros sit amet velit mattis lacinia. Proin volutpat aliquam massa, pulvinar lobortis nisl fermentum et. Suspendisse dui neque, cursus ut luctus non, aliquam vel lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam efficitur mi sit amet risus accumsan consectetur. Nunc nec lacinia nunc. Nullam pulvinar porttitor auctor. Praesent tempus at ante vel feugiat. Nunc tempus leo in mauris mattis tincidunt. Pellentesque eget rutrum augue. Donec ac turpis ultricies, mollis est in, dapibus metus. In non lorem sit amet mauris porta semper id quis diam.
 
 Fusce sit amet quam leo. Morbi elit ante, blandit a blandit a, efficitur in tortor. Maecenas ut nunc vehicula lectus aliquet maximus sed ut orci. Aliquam erat volutpat. Sed venenatis nulla ac neque congue convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In hac habitasse platea dictumst. Curabitur vel volutpat nunc, non rutrum neque. Nunc pretium ante urna, eget consequat nisl accumsan vel. Maecenas bibendum felis justo, eget condimentum orci ultrices a. Vestibulum malesuada lacus id mattis tempus. Curabitur eu fringilla nisl. Proin id quam pharetra, malesuada elit quis, imperdiet mauris. Suspendisse potenti.
@@ -195,9 +195,9 @@ $(window).scroll(function(){
 </script>
 
 <div class="cRetour"></div>
-    <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./mesfonctions.js"></script>
-    <script type="text/javascript" src="./jquery.sticky.js"></script>
+    <script src="./css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/mesfonctions.js"></script>
+    <script type="text/javascript" src="./js/jquery.sticky.js"></script>
   
 </footer>
 </body>
